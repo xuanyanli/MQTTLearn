@@ -234,6 +234,7 @@
 				TargetAttributes = {
 					4DF817D51F4E9B7B002A6D61 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = 6MW5TG3ELE;
 						ProvisioningStyle = Automatic;
 					};
 					4DF817EE1F4E9B7C002A6D61 = {
@@ -500,6 +501,7 @@
 			baseConfigurationReference = 29A695F25077D2D0356056FC /* Pods-MQTTLearn.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6MW5TG3ELE;
 				INFOPLIST_FILE = MQTTLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangtetravel.MQTTLearn;
@@ -512,6 +514,7 @@
 			baseConfigurationReference = 6D71D4F953BFFC4FD6ABD33A /* Pods-MQTTLearn.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 6MW5TG3ELE;
 				INFOPLIST_FILE = MQTTLearn/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fangtetravel.MQTTLearn;
@@ -584,6 +587,7 @@
 				4DF818051F4E9B7C002A6D61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DF818061F4E9B7C002A6D61 /* Build configuration list for PBXNativeTarget "MQTTLearnTests" */ = {
 			isa = XCConfigurationList;
@@ -592,6 +596,7 @@
 				4DF818081F4E9B7C002A6D61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4DF818091F4E9B7C002A6D61 /* Build configuration list for PBXNativeTarget "MQTTLearnUITests" */ = {
 			isa = XCConfigurationList;
@@ -600,6 +605,7 @@
 				4DF8180B1F4E9B7C002A6D61 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
