@@ -1,0 +1,4 @@
+platform :ios,'7.0'
+target 'MQTTLearn' do
+pod 'MQTTClient', '~> 0.9.7'
+end
