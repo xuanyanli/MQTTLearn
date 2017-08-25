@@ -16,6 +16,9 @@
 		4DF817F41F4E9B7C002A6D61 /* MQTTLearnTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF817F31F4E9B7C002A6D61 /* MQTTLearnTests.m */; };
 		4DF817FF1F4E9B7C002A6D61 /* MQTTLearnUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF817FE1F4E9B7C002A6D61 /* MQTTLearnUITests.m */; };
 		7FBEAC808DB1D37335F630DA /* libPods-MQTTLearn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B56BE91D8FD7A9C98E275C7 /* libPods-MQTTLearn.a */; };
+		89B5B07E1F4FF24700A75025 /* MQTTClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B5B07D1F4FF24700A75025 /* MQTTClientManager.m */; };
+		89B5B0821F4FF2E800A75025 /* ClientLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89B5B0801F4FF2E800A75025 /* ClientLoginViewController.m */; };
+		89B5B0831F4FF2E800A75025 /* ClientLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89B5B0811F4FF2E800A75025 /* ClientLoginViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,11 @@
 		4DF817FE1F4E9B7C002A6D61 /* MQTTLearnUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTTLearnUITests.m; sourceTree = "<group>"; };
 		4DF818001F4E9B7C002A6D61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6D71D4F953BFFC4FD6ABD33A /* Pods-MQTTLearn.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MQTTLearn.release.xcconfig"; path = "Pods/Target Support Files/Pods-MQTTLearn/Pods-MQTTLearn.release.xcconfig"; sourceTree = "<group>"; };
+		89B5B07C1F4FF24700A75025 /* MQTTClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQTTClientManager.h; sourceTree = "<group>"; };
+		89B5B07D1F4FF24700A75025 /* MQTTClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQTTClientManager.m; sourceTree = "<group>"; };
+		89B5B07F1F4FF2E800A75025 /* ClientLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientLoginViewController.h; sourceTree = "<group>"; };
+		89B5B0801F4FF2E800A75025 /* ClientLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientLoginViewController.m; sourceTree = "<group>"; };
+		89B5B0811F4FF2E800A75025 /* ClientLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClientLoginViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 				6D71D4F953BFFC4FD6ABD33A /* Pods-MQTTLearn.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4DF817CD1F4E9B7B002A6D61 = {
@@ -99,7 +108,6 @@
 				4DF817F21F4E9B7C002A6D61 /* MQTTLearnTests */,
 				4DF817FD1F4E9B7C002A6D61 /* MQTTLearnUITests */,
 				4DF817D71F4E9B7B002A6D61 /* Products */,
-				1EBF7222D3C108F90C134D9E /* Pods */,
 				9B4E75F72BBBC7B5ABC63B91 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -117,10 +125,15 @@
 		4DF817D81F4E9B7B002A6D61 /* MQTTLearn */ = {
 			isa = PBXGroup;
 			children = (
+				89B5B07C1F4FF24700A75025 /* MQTTClientManager.h */,
+				89B5B07D1F4FF24700A75025 /* MQTTClientManager.m */,
 				4DF817DC1F4E9B7B002A6D61 /* AppDelegate.h */,
 				4DF817DD1F4E9B7B002A6D61 /* AppDelegate.m */,
 				4DF817DF1F4E9B7C002A6D61 /* ViewController.h */,
 				4DF817E01F4E9B7C002A6D61 /* ViewController.m */,
+				89B5B07F1F4FF2E800A75025 /* ClientLoginViewController.h */,
+				89B5B0801F4FF2E800A75025 /* ClientLoginViewController.m */,
+				89B5B0811F4FF2E800A75025 /* ClientLoginViewController.xib */,
 				4DF817E21F4E9B7C002A6D61 /* Main.storyboard */,
 				4DF817E51F4E9B7C002A6D61 /* Assets.xcassets */,
 				4DF817E71F4E9B7C002A6D61 /* LaunchScreen.storyboard */,
@@ -150,6 +163,7 @@
 		4DF817FD1F4E9B7C002A6D61 /* MQTTLearnUITests */ = {
 			isa = PBXGroup;
 			children = (
+				1EBF7222D3C108F90C134D9E /* Pods */,
 				4DF817FE1F4E9B7C002A6D61 /* MQTTLearnUITests.m */,
 				4DF818001F4E9B7C002A6D61 /* Info.plist */,
 			);
@@ -275,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DF817E91F4E9B7C002A6D61 /* LaunchScreen.storyboard in Resources */,
+				89B5B0831F4FF2E800A75025 /* ClientLoginViewController.xib in Resources */,
 				4DF817E61F4E9B7C002A6D61 /* Assets.xcassets in Resources */,
 				4DF817E41F4E9B7C002A6D61 /* Main.storyboard in Resources */,
 			);
@@ -351,6 +366,8 @@
 			files = (
 				4DF817E11F4E9B7C002A6D61 /* ViewController.m in Sources */,
 				4DF817DE1F4E9B7B002A6D61 /* AppDelegate.m in Sources */,
+				89B5B0821F4FF2E800A75025 /* ClientLoginViewController.m in Sources */,
+				89B5B07E1F4FF24700A75025 /* MQTTClientManager.m in Sources */,
 				4DF817DB1F4E9B7B002A6D61 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

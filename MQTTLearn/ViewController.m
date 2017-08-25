@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
+#import "ClientLoginViewController.h"
 
 #import <MQTTClient/MQTTClient.h>
 #import "MQTTSessionManager.h"
+
+#import "MQTTClientManager.h"
 
 @interface ViewController ()<MQTTSessionManagerDelegate>
 
@@ -29,6 +32,13 @@
 
 #define MQTT_HOST @"10.98.56.191"
 #define MQTT_PORT 1883
+
+#define MQTT_TOPIC @"topic_example"
+#define MQTT_GROUPID @"GID_LXY_MQTT"
+#define MQTT_PRODUCTID @"PID_LXY_MQTT"
+#define MQTT_CUSTOMID @"CID_LXY_MQTT"
+#define ACCESS_KeyID @"LTAIEaSAa5Az17Pd"
+#define ACCESS_KeySECRET @"GluPKNdLfraFzNf70soOfHILzQPlFt"
 
 #define NNSLog(FORMAT, ...) fprintf(stderr,"%s\n",[[NSString stringWithFormat:FORMAT, ##__VA_ARGS__] UTF8String]);
 
@@ -53,15 +63,19 @@
     return _mySessionManager;
 }
 
+- (IBAction)clientLogin:(id)sender
+{
+    ClientLoginViewController *clientLoginVC = [[ClientLoginViewController alloc]init];
+    [self.navigationController pushViewController:clientLoginVC animated:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     //连接
     [self sessionManagerConnect];
-    
-    //订阅主题
-//    [self subscribeToTopic];
     
     //添加监听连接的状态
     [self addSessionManagerConnectStatus];
@@ -84,8 +98,17 @@
  */
 - (void)sessionManagerConnect
 {
+    self.rootTopic = @"example";
+    self.qos = 2;
     NSString *clientId = [UIDevice currentDevice].identifierForVendor.UUIDString;
-    [self.mySessionManager connectTo:MQTT_HOST port:MQTT_PORT tls:false keepalive:60 clean:true auth:false user:@"lixuanyan" pass:@"123456" will:false willTopic:self.rootTopic willMsg:nil willQos:self.qos willRetainFlag:false withClientId:clientId ];
+    [self.mySessionManager connectTo:MQTT_HOST port:MQTT_PORT tls:false keepalive:60 clean:true auth:false user:nil pass:nil will:false willTopic:self.rootTopic willMsg:nil willQos:self.qos willRetainFlag:false withClientId:clientId ];
+    
+    
+//     [[MQTTClientManager shareManager]connectTo:MQTT_HOST port:MQTT_PORT tls:false keepalive:60 clean:true auth:false user:nil pass:nil will:nil willTopic:self.rootTopic willMsg:nil willQos:self.qos willRetainFlag:false withClientId:clientId];
+//    
+//    NSString *sendMsg = @"MQTTClient_TestMsg";
+//    NSData *sendData = [sendMsg dataUsingEncoding:NSUTF8StringEncoding];
+//    [[MQTTClientManager shareManager]sendData:sendData];
 }
 
 #pragma mark- 订阅主题
@@ -122,6 +145,9 @@
         case MQTTSessionManagerStateConnected:
         {   //已经连接
             NNSLog(@"已经连接");
+            
+            //订阅主题
+            [self subscribeToTopic];
             break;
         }
         case MQTTSessionManagerStateError:
@@ -146,17 +172,13 @@
 
 #pragma mark- MQTTSessionManagerDelegate
 #pragma mark 获取服务器返回的数据
-- (void)handleMessage:(NSData *)data onTopic:(NSString *)topic retained:(BOOL)retained
-{
-    NNSLog(@"接收到的数据:%@",topic);
-}
-
 - (void)sessionManager:(MQTTSessionManager *)sessionManager
      didReceiveMessage:(NSData *)data
                onTopic:(NSString *)topic
               retained:(BOOL)retained
 {
-     NNSLog(@"接收到的数据:%@",topic);
+    NSString *msgStr = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+     NNSLog(@"接收到的数据topic:%@,msg:%@",topic,msgStr);
 }
 
 - (void)sessionManager:(MQTTSessionManager *)sessionManager didDeliverMessage:(UInt16)msgID
